@@ -64,7 +64,7 @@ jobs:
       - name: Run autopkgtest
         run: |
           cd artifacts
-          autopkgtest *.dsc -- null
+          autopkgtest *.deb -- null
 
       - name: Upload artifacts
         uses: actions/upload-artifact@v4

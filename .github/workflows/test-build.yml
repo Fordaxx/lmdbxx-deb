@@ -64,7 +64,16 @@ jobs:
       - name: Run autopkgtest
         run: |
           cd artifacts
-          autopkgtest *.deb *.dsc -- null
+          ls -la
+          DSC=$(ls *.dsc 2>/dev/null || true)
+          if [ -n "$DSC" ]; then
+            echo "Testing with DSC: $DSC"
+            autopkgtest "$DSC" -- null
+          else
+            echo "No .dsc found, testing with .deb"
+            DEB=$(ls *.deb)
+            autopkgtest --no-built-binaries "$DEB" -- null
+          fi
 
       - name: Upload artifacts
         uses: actions/upload-artifact@v4

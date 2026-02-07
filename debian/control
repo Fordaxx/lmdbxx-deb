@@ -2,7 +2,8 @@ Source: lmdbxx
 Section: libdevel
 Priority: optional
 Maintainer: Ruslan Dautov <r.dautoff2016@yandex.ru>
-Build-Depends: debhelper-compat (= 13)
+Build-Depends: debhelper-compat (= 13),
+               liblmdb-dev (>= 0.9.18)
 Standards-Version: 4.7.3.0
 Homepage: https://github.com/hoytech/lmdbxx
 Vcs-Browser: https://github.com/Fordaxx/lmdbxx-deb
